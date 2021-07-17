@@ -18,7 +18,7 @@ variables:
   
 steps:
 - task: UseDotNet@2
-  displayName: 'Use .NET SDK 5.x'
+  displayName: 'Use .NET SDK $(dotnetSdkVersion)'
   inputs:
     packageType: sdk
     version: '$(dotnetSdkVersion)'
@@ -48,7 +48,7 @@ steps:
   displayName: 'Build the project - $(buildConfiguration)'
   inputs:
     command: 'build'
-    arguments: '--no-restore --configurationn $(buildConfiguration)'
+    arguments: '--no-restore --configuration $(buildConfiguration)'
     projects: '**/*.csproj'
 
 - task: DotNetCoreCLI@2
